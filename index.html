@@ -430,17 +430,32 @@ footer {
       Um único erro de medida pode custar <strong>mais do que o valor desta oferta.</strong>
     </div>
 
+    <div id="wiapy_upsell"></div>
+    <script>
+    initWiapyUpsell({
+        linkUrl: "https://pay.wiapy.com/checkout/6a1e64e71e852dffa3ad71ea",
+        linkText: "SIM, EU ACEITO ESSA OFERTA",
+        styles: {
+            backgroundColor: "#00d769",
+            hoverBackgroundColor: "#00b85a",
+            fontSize: "17px",
+            borderRadius: "10px"
+        },
+        refusalLinkUrl: "https://wiapy.com/login",
+        refusalLinkText: "Recusar está oferta",
+        refusalLinkColor: "#000000"
+    });
+    </script>
+
+    <p class="recusa-hint">Ao recusar, você abre mão dessa oferta e ela não estará disponível depois.</p>
+
     <div class="garantia-strip">
-      <span class="gar-icon">🛡️</span>
+      <img src="img/garantia.webp" alt="Garantia" class="gar-icon" style="width:60px;height:60px;object-fit:contain;">
       <div class="gar-text">
         <strong>7 dias de garantia total</strong>
         <p>Teste sem risco. Se não gostar, basta pedir o reembolso dentro do prazo.</p>
       </div>
     </div>
-
-    <div id="wiapy_upsell"></div>
-
-    <p class="recusa-hint">Ao recusar, você abre mão dessa oferta e ela não estará disponível depois.</p>
   </div>
 </section>
 
@@ -449,22 +464,6 @@ footer {
   © 2025 — Todos os direitos reservados.<br>
   Esta página é uma oferta exclusiva pós-compra.
 </footer>
-
-<script>
-initWiapyUpsell({
-    linkUrl: "https://pay.wiapy.com/checkout/undefined",
-    linkText: "✅ SIM! QUERO A CALCULADORA POR R$ 19,90 AGORA",
-    styles: {
-        backgroundColor: "#16803a",
-        hoverBackgroundColor: "#15803d",
-        fontSize: "17px",
-        borderRadius: "50px"
-    },
-    refusalLinkUrl: "https://wiapy.com/login",
-    refusalLinkText: "Não, obrigada. Prefiro adaptar os moldes na mão.",
-    refusalLinkColor: "#666666"
-});
-</script>
 
 <script>
 document.addEventListener('keydown', function(e){
