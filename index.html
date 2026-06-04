@@ -22,12 +22,26 @@
   async
   defer
 ></script>
+
+<!-- Wistia -->
+<script src="https://fast.wistia.com/player.js" async></script>
+<script src="https://fast.wistia.com/embed/hzsfua2r0w.js" async type="module"></script>
+<style>
+  wistia-player[media-id='hzsfua2r0w']:not(:defined) {
+    background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/hzsfua2r0w/swatch');
+    display: block;
+    filter: blur(5px);
+    padding-top: 177.78%;
+  }
+</style>
+
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
   font-family: 'Nunito', sans-serif;
-  background: #f9f9f9;
+  background: linear-gradient(180deg, #1a1a2e 0%, #0f3460 50%, #1a1a2e 100%);
+  background-attachment: fixed;
   color: #1a1a1a;
   max-width: 480px;
   margin: 0 auto;
@@ -50,413 +64,157 @@ body {
 /* DIVIDER */
 .divider { height: 4px; background: linear-gradient(90deg,#FFD600,#FF6B00,#FFD600); }
 
-/* ── HERO ── */
-.hero {
-  background:
-    linear-gradient(160deg, rgba(0,0,0,0.10) 0%, rgba(20,0,0,0.10) 100%),
-    url('img/head.webp') center center / cover no-repeat;
+/* ── HEAD ── */
+.head {
+  background: transparent;
   text-align: center;
-  padding: 36px 22px 32px;
+  padding: 28px 20px 24px;
   position: relative;
   overflow: hidden;
 }
-.hero::before {
+.head::before {
   content: '';
   position: absolute;
   inset: 0;
   background: repeating-linear-gradient(45deg,rgba(255,107,0,0.03) 0px,rgba(255,107,0,0.03) 1px,transparent 1px,transparent 12px);
+  pointer-events: none;
 }
-.hero-badge {
+.head-badge {
   display: inline-block;
   background: rgba(255,107,0,0.15);
   border: 1.5px solid rgba(255,107,0,0.4);
   border-radius: 50px;
   padding: 7px 18px;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
   font-size: 13px;
   font-weight: 800;
   color: #FFB066;
   position: relative;
 }
-.hero h1 {
+.head h1 {
   font-family: 'Montserrat', sans-serif;
-  font-size: 27px;
+  font-size: 22px;
   font-weight: 900;
-  line-height: 1.2;
+  line-height: 1.25;
   color: #fff;
-  margin-bottom: 14px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
-  position: relative;
-}
-.hero h1 span { color: #FF6B00; }
-.hero .sub {
-  font-size: 16px;
-  color: #ddd;
-  line-height: 1.65;
-  position: relative;
-}
-
-/* ── PROBLEMA ── */
-.sec { padding: 38px 20px; background: #fff; }
-.sec.alt { background: #f9f6f2; }
-
-.pain-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 22px;
-}
-.pain-list li {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: #fff4f4;
-  border: 1.5px solid #fecaca;
-  border-radius: 12px;
-  padding: 13px 16px;
-  font-size: 16px;
-  font-weight: 700;
-  color: #111;
-}
-.pain-list li .pi { font-size: 18px; flex-shrink: 0; }
-
-/* faixa destaque */
-.faixa {
-  background: linear-gradient(135deg, #FF6B00, #e05500);
-  border-radius: 16px;
-  padding: 20px 18px;
-  text-align: center;
-  color: #fff;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
-  font-weight: 900;
-  line-height: 1.3;
-  box-shadow: 0 6px 20px rgba(255,107,0,0.35);
-}
-.faixa span { font-size: 26px; display: block; margin-bottom: 6px; }
-
-/* ── EXEMPLO ── */
-.exemplo-card {
-  background: linear-gradient(165deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%);
-  border: 2.5px solid #FF6B00;
-  border-radius: 20px;
-  padding: 26px 20px;
-  box-shadow: 0 8px 32px rgba(255,107,0,0.22);
-}
-.ex-title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  font-weight: 900;
-  color: #FFB066;
-  text-align: center;
-  margin-bottom: 18px;
-  letter-spacing: 0.5px;
-}
-.ex-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
   margin-bottom: 12px;
-}
-.ex-num {
-  width: 34px; height: 34px;
-  border-radius: 50%;
-  background: rgba(255,107,0,0.2);
-  border: 2px solid #FF6B00;
-  color: #FF6B00;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 15px; font-weight: 900;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-}
-.ex-text {
-  font-size: 15px; font-weight: 700;
-  color: #e0e0e0; line-height: 1.55;
-  padding-top: 6px;
-}
-.ex-text strong { color: #FF6B00; }
-.ex-divider { height: 1px; background: rgba(255,255,255,0.08); margin: 12px 0; }
-.ex-result {
-  background: rgba(22,128,58,0.15);
-  border: 1.5px solid rgba(34,197,94,0.3);
-  border-radius: 12px;
-  padding: 14px;
-  text-align: center;
-  font-size: 15px; font-weight: 700;
-  color: #4ade80;
-  line-height: 1.6;
-  margin-top: 16px;
-}
-.ex-result strong { display: block; font-size: 16px; font-weight: 900; margin-bottom: 2px; }
-
-/* ── BENEFÍCIOS ── */
-.ben-list { display: flex; flex-direction: column; gap: 10px; }
-.ben-item {
-  display: flex; align-items: flex-start; gap: 14px;
-  background: #fff;
-  border: 1.5px solid #f0e8e0;
-  border-radius: 14px;
-  padding: 16px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-}
-.ben-check {
-  width: 30px; height: 30px; border-radius: 50%;
-  background: linear-gradient(135deg, #16803a, #22c55e);
-  color: #fff; font-size: 15px; font-weight: 900;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-}
-.ben-text { font-size: 15px; font-weight: 700; color: #111; line-height: 1.5; }
-.ben-text strong { color: #d94800; display: block; font-size: 15px; margin-bottom: 1px; }
-
-/* ── OFERTA ── */
-.oferta-box {
-  background: linear-gradient(165deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%);
-  border: 2.5px solid #FF6B00;
-  border-radius: 20px;
-  padding: 32px 22px 28px;
-  text-align: center;
-  box-shadow: 0 8px 32px rgba(255,107,0,0.25), 0 0 60px rgba(255,107,0,0.08);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
   position: relative;
 }
-.oferta-badge {
-  position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
-  background: linear-gradient(135deg, #FF6B00, #e05500);
-  color: #fff;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 13px; font-weight: 900;
-  padding: 6px 22px; border-radius: 50px; white-space: nowrap;
+.head h1 span {
+  color: #FF6B00;
+  text-decoration: underline;
+  text-decoration-color: #FF6B00;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 5px;
 }
-.oferta-name {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 19px; font-weight: 900;
-  color: #fff; margin-bottom: 4px;
-}
-.oferta-desc {
-  font-size: 13px; color: #bbb;
-  margin-bottom: 18px; line-height: 1.5;
-}
-.oferta-old { font-size: 14px; color: #888; text-decoration: line-through; margin-bottom: 2px; }
-.oferta-price {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 56px; font-weight: 900;
-  color: #FF6B00; line-height: 1;
-  text-shadow: 0 0 20px rgba(255,107,0,0.3);
-  margin-bottom: 6px;
-}
-.oferta-price sup { font-size: 24px; vertical-align: top; margin-top: 10px; display: inline-block; }
-.oferta-price span { font-size: 26px; }
-.oferta-notes {
-  display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;
-  margin-bottom: 20px;
-}
-.oferta-note {
-  font-size: 12px; font-weight: 700; color: #ccc;
-  display: flex; align-items: center; gap: 4px;
-}
-.oferta-note::before { content: '✓'; color: #4ade80; font-weight: 900; }
-
-/* justificativa do preço */
-.justifica {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 12px;
-  padding: 14px 16px;
-  margin-bottom: 20px;
-  font-size: 14px;
+.head .sub {
+  font-size: 15px;
+  color: #ccc;
   font-weight: 700;
-  color: #ddd;
   line-height: 1.6;
-  text-align: left;
+  position: relative;
 }
-.justifica strong { color: #FFB066; }
 
-/* garantia strip */
-.garantia-strip {
-  background: linear-gradient(135deg, #f0fdf4, #dcfce7);
-  border: 2px solid #22c55e;
-  border-radius: 14px;
-  padding: 16px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 20px;
-  text-align: left;
-}
-.gar-icon { font-size: 34px; flex-shrink: 0; }
-.gar-text strong { display: block; font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 900; color: #16803a; margin-bottom: 3px; }
-.gar-text p { font-size: 13px; color: #333; line-height: 1.55; }
-
-/* recusa hint */
-.recusa-hint {
+/* ── VSL ── */
+.vsl-section {
+  background: transparent;
+  padding: 28px 20px 32px;
   text-align: center;
-  font-size: 12px;
-  color: #666;
-  margin-top: 10px;
-  line-height: 1.5;
+}
+.vsl-wrapper {
+  max-width: 280px;
+  margin: 0 auto;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(0,0,0,.45);
+}
+.vsl-wrapper wistia-player {
+  display: block;
+  width: 100%;
 }
 
-/* pulse */
-@keyframes pulseGlow {
-  0%,100% { box-shadow: 0 6px 20px rgba(22,128,58,0.4); transform: scale(1); }
-  50%      { box-shadow: 0 8px 32px rgba(22,128,58,0.6), 0 0 22px rgba(22,128,58,0.3); transform: scale(1.025); }
+/* ── CTA SECTION ── */
+.cta-section {
+  background: transparent;
+  padding: 32px 20px 36px;
+  text-align: center;
+}
+
+.copy-body {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ccc;
+  line-height: 1.75;
+  margin-bottom: 28px;
+}
+
+/* Wiapy upsell container */
+#wiapy_upsell {
+  margin: 0;
 }
 
 /* FOOTER */
 footer {
-  background: #111; color: #777;
-  text-align: center; padding: 26px 22px;
-  font-size: 13px; line-height: 1.9;
+  background: #0a0a0a;
+  color: #555;
+  text-align: center;
+  padding: 22px 22px;
+  font-size: 13px;
+  line-height: 1.9;
 }
 
 @media (max-width: 480px) {
-  .sec { padding: 34px 16px; }
-  .hero h1 { font-size: 23px; }
-  .oferta-price { font-size: 46px; }
+  .head h1 { font-size: 20px; }
+  .cta-section { padding: 26px 16px 28px; }
 }
 </style>
 </head>
 <body>
 
 <!-- TOP BAR -->
-<div class="topbar">⚠️ ATENÇÃO — Oferta disponível apenas nessa página</div>
+<div class="topbar">⚠️ Essa oferta some quando você fechar essa página</div>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-badge">Espere! Não feche essa página ainda</div>
-  <h1>⚠️ NÃO CORRA O RISCO DE <span style="text-decoration:underline;text-decoration-color:#FF6B00;text-decoration-thickness:3px;text-underline-offset:5px;filter:drop-shadow(0 0 6px rgba(255,107,0,0.7));">ERRAR AS MEDIDAS</span> DAS SUAS PANTUFAS</h1>
-  <img src="img/mockup.webp" alt="Calculadora Inteligente de Moldes" style="width:100%;max-width:340px;margin:18px auto 10px;display:block;border-radius:16px;position:relative;">
-  <p class="sub" style="color:#fff;font-weight:800;">Você acabou de garantir seus moldes e videoaulas.<br>Mas existe uma situação que pode acontecer a qualquer momento…</p>
+<!-- HEAD -->
+<section class="head">
+  <div class="head-badge">⏳ Espere! Não feche essa página</div>
+  <h1>NÃO CORRA O RISCO DE <span>ERRAR AS MEDIDAS</span> DAS SUAS PANTUFAS</h1>
+  <p class="sub">Assista o vídeo abaixo antes de sair 👇</p>
 </section>
+
+<!-- VSL 9:16 -->
+<div class="vsl-section">
+  <div class="vsl-wrapper">
+    <wistia-player media-id="hzsfua2r0w" aspect="0.5625"></wistia-player>
+  </div>
+</div>
 
 <div class="divider"></div>
 
-<!-- PROBLEMA -->
-<section class="sec">
-  <ul class="pain-list">
-    <li><span class="pi">👣</span>Uma cliente pede uma numeração diferente</li>
-    <li><span class="pi">📐</span>Você tenta adaptar o molde manualmente</li>
-    <li><span class="pi">🔢</span>Faz contas. Confere medidas.</li>
-    <li><span class="pi">⏱️</span>Perde tempo que não tem</li>
-    <li><span class="pi">😬</span>E ainda corre o risco de errar — e desperdiçar material</li>
-  </ul>
+<!-- CTA -->
+<section class="cta-section">
 
-  <div class="faixa">
-    <span>⚡</span>
-    Adapte qualquer molde para qualquer numeração em segundos.
-  </div>
-  <img src="img/calculadora.webp" alt="Calculadora Inteligente de Moldes" style="width:100%;border-radius:16px;margin-top:22px;display:block;box-shadow:0 4px 20px rgba(0,0,0,0.10);">
-</section>
+  <p class="copy-body">Essa ferramenta faz tudo isso por você — <span style="color:#FF6B00;font-weight:900;">com um clique.</span></p>
 
-<div class="divider"></div>
+  <div id="wiapy_upsell"></div>
+  <script>
+  initWiapyUpsell({
+      linkUrl: "https://pay.wiapy.com/checkout/6a1e64e71e852dffa3ad71ea",
+      linkText: "SIM! QUERO ADAPTAR QUALQUER MOLDE",
+      styles: {
+          backgroundColor: "#FF6B00",
+          hoverBackgroundColor: "#e05500",
+          fontSize: "17px",
+          borderRadius: "10px"
+      },
+      refusalLinkUrl: "https://wiapy.com/login",
+      refusalLinkText: "Recusar está oferta",
+      refusalLinkColor: "#aaaaaa"
+  });
+  </script>
 
-<!-- EXEMPLO -->
-<section class="sec alt">
-  <div class="exemplo-card">
-    <p class="ex-title">📐 EXEMPLO REAL</p>
+  <p style="text-align:center;font-size:12px;color:#666;margin-top:10px;line-height:1.5;">Ao recusar, você abre mão dessa oferta e ela não estará disponível depois.</p>
 
-    <div class="ex-row">
-      <div class="ex-num">1</div>
-      <p class="ex-text">Você tem um molde tamanho <strong>29</strong>.</p>
-    </div>
-    <div class="ex-divider"></div>
-    <div class="ex-row">
-      <div class="ex-num">2</div>
-      <p class="ex-text">Uma cliente pede tamanho <strong>35</strong>.</p>
-    </div>
-    <div class="ex-divider"></div>
-    <div class="ex-row">
-      <div class="ex-num">3</div>
-      <p class="ex-text">Com <strong>um clique</strong>, a Calculadora mostra exatamente as medidas corretas para você adaptar o molde.</p>
-    </div>
-
-    <div class="ex-result">
-      <strong>✅ Pronto. Sem contas. Sem erro.</strong>
-      Rápido, preciso e simples de usar.
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- BENEFÍCIOS -->
-<section class="sec">
-  <div class="ben-list">
-    <div class="ben-item">
-      <div class="ben-check">✓</div>
-      <div class="ben-text"><strong>Qualquer numeração em segundos</strong>Do 15 ao 45, com precisão automática.</div>
-    </div>
-    <div class="ben-item">
-      <div class="ben-check">✓</div>
-      <div class="ben-text"><strong>Medidas precisas e automáticas</strong>Sem fazer contas, sem risco de errar.</div>
-    </div>
-    <div class="ben-item">
-      <div class="ben-check">✓</div>
-      <div class="ben-text"><strong>Mais rapidez na produção</strong>Aceite qualquer pedido com confiança.</div>
-    </div>
-    <div class="ben-item">
-      <div class="ben-check">✓</div>
-      <div class="ben-text"><strong>Menos desperdício de material</strong>Acerte de primeira e economize.</div>
-    </div>
-    <div class="ben-item">
-      <div class="ben-check">✓</div>
-      <div class="ben-text"><strong>Simples de usar</strong>Mesmo para quem não é de tecnologia.</div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- OFERTA -->
-<section class="sec alt">
-  <div class="oferta-box">
-    <div class="oferta-badge">🔒 Exclusivo para novas alunas</div>
-
-    <p class="oferta-name">Calculadora Inteligente de Moldes</p>
-    <p class="oferta-desc">Transforme qualquer molde em qualquer numeração em segundos.</p>
-
-    <p class="oferta-old">De R$ 67,00</p>
-    <p class="oferta-price"><sup>R$</sup>19<span>,90</span></p>
-
-    <div class="oferta-notes">
-      <span class="oferta-note">Pagamento único</span>
-      <span class="oferta-note">Sem mensalidade</span>
-      <span class="oferta-note">Acesso imediato</span>
-    </div>
-
-    <div class="justifica">
-      Você vai usar essa ferramenta <strong>dezenas de vezes</strong> durante sua produção.<br>
-      Um único erro de medida pode custar <strong>mais do que o valor desta oferta.</strong>
-    </div>
-
-    <div id="wiapy_upsell"></div>
-    <script>
-    initWiapyUpsell({
-        linkUrl: "https://pay.wiapy.com/checkout/6a1e64e71e852dffa3ad71ea",
-        linkText: "SIM, EU ACEITO ESSA OFERTA",
-        styles: {
-            backgroundColor: "#00d769",
-            hoverBackgroundColor: "#00b85a",
-            fontSize: "17px",
-            borderRadius: "10px"
-        },
-        refusalLinkUrl: "https://wiapy.com/login",
-        refusalLinkText: "Recusar está oferta",
-        refusalLinkColor: "#000000"
-    });
-    </script>
-
-    <p class="recusa-hint">Ao recusar, você abre mão dessa oferta e ela não estará disponível depois.</p>
-
-    <div class="garantia-strip">
-      <img src="img/garantia.webp" alt="Garantia" class="gar-icon" style="width:60px;height:60px;object-fit:contain;">
-      <div class="gar-text">
-        <strong>7 dias de garantia total</strong>
-        <p>Teste sem risco. Se não gostar, basta pedir o reembolso dentro do prazo.</p>
-      </div>
-    </div>
-  </div>
 </section>
 
 <!-- FOOTER -->
